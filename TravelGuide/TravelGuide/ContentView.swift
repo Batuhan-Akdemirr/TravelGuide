@@ -8,9 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var locationService = LocationService()
+  
     var body: some View {
         VStack {
-            Image(.amsterdamRijksmuseum1)
+           
+            ForEach(locationService.results) { item in
+                Text("\(item.cityName)")
+            }
+            Button("Tap") {
+                locationService.fetchData()
+          
+            }
         }
         .padding()
     }
