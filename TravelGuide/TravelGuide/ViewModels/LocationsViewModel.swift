@@ -23,6 +23,8 @@ class LocationsViewModel {
     var mapRegion : MKCoordinateRegion =  MKCoordinateRegion()
     let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
     
+    var showLocationsList = false
+    
     init() {
         Task {
             await fetcData()
@@ -43,6 +45,19 @@ class LocationsViewModel {
             mapRegion = MKCoordinateRegion(
                 center: location.coordinate,
                 span: mapSpan)
+        }
+    }
+    
+    func toggleLocationsList() {
+        withAnimation(.easeInOut) {
+            showLocationsList.toggle()
+        }
+    }
+    
+    func showNextLocation(location: Location) {
+        withAnimation(.easeInOut) {
+            mapLocation = location
+            showLocationsList = false
         }
     }
 

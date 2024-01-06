@@ -23,5 +23,5 @@ struct Location: Codable, Identifiable , Equatable, Hashable{
         CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
     }
     
- 
+   
 }
