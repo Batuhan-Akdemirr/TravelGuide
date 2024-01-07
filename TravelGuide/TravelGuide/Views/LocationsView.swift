@@ -24,7 +24,24 @@ struct LocationsView: View {
                 header
                     .padding()
                 
+               
                 Spacer()
+                
+                ZStack {
+                    ForEach(vm.locations) { location in
+                        if(vm.currentLocation == location) {
+                            LocationPreviewView(location: location)
+                                .shadow(color: .black.opacity(0.3), radius: 20)
+                                .padding()
+                                .transition(.asymmetric(
+                                    insertion: .move(edge: .trailing) ,
+                                    removal: .move(edge: .leading))
+                                )
+                        }
+                      
+                    }
+                }
+              
             }
             
         }
@@ -43,10 +60,10 @@ extension LocationsView {
     //MARK: COMPONENTS
     
     private var header: some View {
+        
         VStack {
-           
             Button(action: vm.toggleLocationsList) {
-                Text(vm.mapLocation.name + ", " + vm.mapLocation.cityName)
+                Text(vm.currentLocation.name + ", " + vm.currentLocation.cityName)
                     .font(.title2)
                     .fontWeight(.black)
                     .foregroundStyle(.primary)
@@ -59,7 +76,7 @@ extension LocationsView {
                             .padding()
                             .rotationEffect(Angle(degrees: vm.showLocationsList ? 180 : 0))
                     }
-                    .animation(.none, value: vm.mapLocation)
+                    .animation(.none, value: vm.currentLocation)
             }
             .foregroundStyle(.primary)
 

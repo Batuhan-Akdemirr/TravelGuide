@@ -12,6 +12,8 @@
 		AA1F535E2B48608D006EB14C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA1F535D2B48608D006EB14C /* Preview Assets.xcassets */; };
 		AA1F53682B486941006EB14C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F53672B486941006EB14C /* Location.swift */; };
 		AA1F536B2B486B6A006EB14C /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F536A2B486B6A006EB14C /* LocationService.swift */; };
+		AA286D672B49BA9D00689F8C /* LocationPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA286D662B49BA9D00689F8C /* LocationPreviewView.swift */; };
+		AA46BDCB2B4ACAF40060803E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46BDCA2B4ACAF40060803E /* ColorExtension.swift */; };
 		AA85E48C2B48754F006D6544 /* LocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA85E48B2B48754F006D6544 /* LocationsView.swift */; };
 		AAAFF2282B495D6B00C2FE68 /* LocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAFF2272B495D6B00C2FE68 /* LocationsViewModel.swift */; };
 		AAAFF22A2B497A5700C2FE68 /* LocationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAFF2292B497A5700C2FE68 /* LocationsListView.swift */; };
@@ -24,6 +26,8 @@
 		AA1F535D2B48608D006EB14C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AA1F53672B486941006EB14C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		AA1F536A2B486B6A006EB14C /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		AA286D662B49BA9D00689F8C /* LocationPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPreviewView.swift; sourceTree = "<group>"; };
+		AA46BDCA2B4ACAF40060803E /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		AA85E48B2B48754F006D6544 /* LocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsView.swift; sourceTree = "<group>"; };
 		AAAFF2272B495D6B00C2FE68 /* LocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewModel.swift; sourceTree = "<group>"; };
 		AAAFF2292B497A5700C2FE68 /* LocationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsListView.swift; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 		AA1F53552B48608C006EB14C /* TravelGuide */ = {
 			isa = PBXGroup;
 			children = (
+				AA46BDC92B4ACAE20060803E /* Extensions */,
 				AA1F53692B486AB0006EB14C /* WebService */,
 				AA1F53662B48691B006EB14C /* Views */,
 				AA1F53652B486912006EB14C /* ViewModels */,
@@ -99,6 +104,7 @@
 			children = (
 				AA85E48B2B48754F006D6544 /* LocationsView.swift */,
 				AAAFF2292B497A5700C2FE68 /* LocationsListView.swift */,
+				AA286D662B49BA9D00689F8C /* LocationPreviewView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -109,6 +115,14 @@
 				AA1F536A2B486B6A006EB14C /* LocationService.swift */,
 			);
 			path = WebService;
+			sourceTree = "<group>";
+		};
+		AA46BDC92B4ACAE20060803E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AA46BDCA2B4ACAF40060803E /* ColorExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,7 +198,9 @@
 				AA1F53682B486941006EB14C /* Location.swift in Sources */,
 				AA85E48C2B48754F006D6544 /* LocationsView.swift in Sources */,
 				AA1F536B2B486B6A006EB14C /* LocationService.swift in Sources */,
+				AA46BDCB2B4ACAF40060803E /* ColorExtension.swift in Sources */,
 				AAAFF22A2B497A5700C2FE68 /* LocationsListView.swift in Sources */,
+				AA286D672B49BA9D00689F8C /* LocationPreviewView.swift in Sources */,
 				AA1F53572B48608C006EB14C /* TravelGuideApp.swift in Sources */,
 				AAAFF2282B495D6B00C2FE68 /* LocationsViewModel.swift in Sources */,
 			);

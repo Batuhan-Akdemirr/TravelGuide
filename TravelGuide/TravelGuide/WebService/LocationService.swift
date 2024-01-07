@@ -9,12 +9,14 @@ import Foundation
 
 
 
+
 class LocationService {
     
     var results = [Location]()
-
+    let baseURL = "https://636cc87fab4814f2b26e1ba4.mockapi.io/places"
+    
      func loadData() async -> [Location] {
-         guard let url = URL(string: "https://636cc87fab4814f2b26e1ba4.mockapi.io/places") else {
+         guard let url = URL(string: baseURL) else {
              print("Invalid URL")
              return []
          }
@@ -27,7 +29,8 @@ class LocationService {
              }
 
          } catch {
-             print("Hata: \(error)")
+             print("Upsss there was an error \(error.localizedDescription)")
+    
          }
          
          return results
