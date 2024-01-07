@@ -68,6 +68,8 @@ extension LocationPreviewView {
             Text(location.name)
                 .font(.title2)
                 .fontWeight(.bold)
+                .lineLimit(1)
+                .minimumScaleFactor(0.5) 
             
             Text(location.cityName)
                 .font(.subheadline)
@@ -78,7 +80,7 @@ extension LocationPreviewView {
     
     private var learnMoreButton : some View {
         Button {
-          
+            vm.sheetLocation = location
         } label: {
             
             Text("Learn more")

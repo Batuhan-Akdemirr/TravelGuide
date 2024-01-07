@@ -13,37 +13,21 @@ struct LocationsView: View {
     @Environment(LocationsViewModel.self) private var vm : LocationsViewModel
  
     var body: some View {
-        
         @Bindable var bindable = vm
-        
         ZStack {
-            Map(coordinateRegion: $bindable.mapRegion)
+            mapLayer
                 .ignoresSafeArea()
-            
+          
             VStack(spacing: 0) {
                 header
                     .padding()
-                
-               
                 Spacer()
-                
-                ZStack {
-                    ForEach(vm.locations) { location in
-                        if(vm.currentLocation == location) {
-                            LocationPreviewView(location: location)
-                                .shadow(color: .black.opacity(0.3), radius: 20)
-                                .padding()
-                                .transition(.asymmetric(
-                                    insertion: .move(edge: .trailing) ,
-                                    removal: .move(edge: .leading))
-                                )
-                        }
-                      
-                    }
-                }
+                locationsPreviewStack
               
             }
-            
+        }
+        .sheet(item: $bindable.sheetLocation, onDismiss: nil) { location in
+            LocationDetailView(location: location)
         }
     }
 }
@@ -77,6 +61,7 @@ extension LocationsView {
                             .rotationEffect(Angle(degrees: vm.showLocationsList ? 180 : 0))
                     }
                     .animation(.none, value: vm.currentLocation)
+                    
             }
             .foregroundStyle(.primary)
 
@@ -90,6 +75,42 @@ extension LocationsView {
         .cornerRadius(10)
         .shadow( color: .black.opacity(0.3), radius: 20, x: 0 , y: 15)
         
+    }
+    
+    
+    private var  mapLayer : some View {
+        @Bindable var bindable = vm
+        return  Map(coordinateRegion: $bindable.mapRegion ,
+                     annotationItems: vm.locations,
+                     annotationContent:{ location in
+                     MapAnnotation(coordinate: location.coordinate) {
+                         LocationMapAnnotationsView()
+                             .scaleEffect(vm.currentLocation == location   ? 1 : 0.7)
+                             .shadow(radius: 10)
+                             .onTapGesture {
+                                 vm.showNextLocation(location: location)
+                             }
+                     }
+                   }
+                 )
+    }
+    
+    
+    private var locationsPreviewStack : some View {
+        ZStack {
+            ForEach(vm.locations) { location in
+                if(vm.currentLocation == location) {
+                    LocationPreviewView(location: location)
+                        .shadow(color: .black.opacity(0.3), radius: 20)
+                        .padding()
+                        .transition(.asymmetric(
+                            insertion: .move(edge: .trailing) ,
+                            removal: .move(edge: .leading))
+                        )
+                }
+              
+            }
+        }
     }
     
     

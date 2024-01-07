@@ -24,6 +24,7 @@ class LocationsViewModel {
     let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
     
     var showLocationsList = false
+    var sheetLocation: Location? = nil 
     
     init() {
         Task {
