@@ -7,9 +7,6 @@
 
 import Foundation
 
-
-
-
 class LocationService {
     
     var results = [Location]()
@@ -36,6 +33,4 @@ class LocationService {
          return results
          
      }
-    
-    
 }

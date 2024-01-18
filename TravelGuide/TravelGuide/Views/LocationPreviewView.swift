@@ -36,9 +36,11 @@ struct LocationPreviewView: View {
 }
 
 #Preview {
-    
-    
-    LocationPreviewView(location: Location(id: "", name: "", cityName: "", description: "", link: "", latitude: 0.0, longtitude: 0.0, imageNames: []) )
+    LocationPreviewView(location: Location(id: "1", name: "Colosseum", cityName: "Rome",
+    description: "The Colosseum is an oval amphitheatre in the centre of the city of Rome, Italy, just east of the Roman Forum. It is the largest ancient amphitheatre ever built, and is still the largest standing amphitheatre in the world today, despite its age.",
+    link: "https://en.wikipedia.org/wiki/Colosseum", latitude: 41.8902, longtitude: 12.4922,
+    imageNames: [ "rome-colosseum-1","rome-colosseum-2","rome-colosseum-3"]))
+    .environment(LocationsViewModel())
 }
 
 

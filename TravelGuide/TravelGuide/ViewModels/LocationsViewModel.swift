@@ -30,10 +30,12 @@ class LocationsViewModel {
         Task {
             await fetcData()
             self.currentLocation = locations.first!
-            self.updateCurrentRegion(location: locations.first!)
+            self.updateCurrentRegion(location: currentLocation)
         }
         
     }
+    
+    //MARK: FUNCTIONS
     
    private func fetcData()  async{
         self.locations = await locationService.loadData()
@@ -41,7 +43,6 @@ class LocationsViewModel {
     }
     
     private func updateCurrentRegion(location: Location) {
-     
         withAnimation(.easeInOut) {
             mapRegion = MKCoordinateRegion(
                 center: location.coordinate,
@@ -63,7 +64,6 @@ class LocationsViewModel {
     }
     
     func nextButtonPressed() {
-        
         guard let currentIndex = locations.firstIndex(where:  {  $0 == currentLocation} ) else {
             print("Error")
             return
@@ -80,10 +80,7 @@ class LocationsViewModel {
             return
         }
         
-        
         let nextLocation = locations[nextIndex]
         showNextLocation(location: nextLocation)
     }
-
-   
 }
