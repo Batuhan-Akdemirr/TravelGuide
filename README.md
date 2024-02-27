@@ -1,5 +1,5 @@
 # TravelGuide
-Travel Guide is a mobile application that displays popular tourist attractions of countries on a map, allowing users to obtain detailed information about these locations.
+Travel Guide is a mobile application that presents popular tourist attractions of countries on a map, allowing users to access detailed information about these locations.
 
 ## Technologies Used
 
